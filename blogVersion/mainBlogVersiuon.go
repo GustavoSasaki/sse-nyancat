@@ -33,6 +33,15 @@ func main() {
 		}
 	}()
 	// </sse>
+	// <manual>
+	router.HandleFunc("/change-flavour", func(w http.ResponseWriter, r *http.Request) {
+		//change flavour manually
+		curFlavour = (curFlavour + 1) % len(flavoursUrl)
+		server.Publish("flavour", &sse.Event{
+			Data: []byte(flavoursUrl[curFlavour]),
+		})
+	})
+	// </manual>
 }
 
 // </start>
