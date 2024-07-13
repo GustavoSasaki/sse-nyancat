@@ -13,11 +13,11 @@ export function Nyancat() {
 		};
 
 		window.onbeforeunload = function () {
-            sseSource.close();
-        };
+			sseSource.close();
+		};
 
-        //ensures close when exit page
-        sseSource.onerror = () => sseSource.close()
+		//ensures close when exit page
+		sseSource.onerror = () => sseSource.close()
 	}, [])
 
 	return (

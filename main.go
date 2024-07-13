@@ -11,6 +11,7 @@ func main() {
 	defer logFile.Close()
 
 	server := sse.New()
+	server.AutoReplay = false
 	server.Headers["Access-Control-Allow-Origin"] = "*"
 	server.CreateStream("flavour")
 

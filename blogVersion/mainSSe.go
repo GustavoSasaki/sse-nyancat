@@ -11,6 +11,7 @@ import (
 func main() {
 
 	server := sse.New()
+	server.AutoReplay = false
 	server.Headers["Access-Control-Allow-Origin"] = "*"
 	server.CreateStream("flavour")
 
